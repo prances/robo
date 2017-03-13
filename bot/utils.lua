@@ -515,10 +515,10 @@ for k,v in pairs(data[tostring(msg.to.id)]['filterlist']) do
     if string.find(string.lower(text), string.lower(k)) then
        var = true
         end
-     end
+     end 
   end
  return var
-end
+end 
 
 function kick_user(user_id, chat_id)
 if not tonumber(user_id) then
@@ -530,6 +530,11 @@ end
 function del_msg(chat_id, message_ids)
 local msgid = {[0] = message_ids}
   tdcli.deleteMessages(chat_id, msgid, dl_cb, nil)
+end
+
+function fwd_msg(chatid,chatfromid, message_ids)
+local msgid = {[0] = message_ids}
+  tdcli.forwardMessages(chatid, chatfromid, msgid , 0, dl_cb, nil)
 end
 
 function file_dl(file_id)

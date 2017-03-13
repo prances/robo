@@ -3350,36 +3350,52 @@ else
        rules = "ℹ️ قوانین پپیشفرض:\n1⃣ ارسال پیام مکرر ممنوع.\n2⃣ اسپم ممنوع.\n3⃣ تبلیغ ممنوع.\n4⃣ سعی کنید از موضوع خارج نشید.\n5⃣ هرنوع نژاد پرستی, شاخ بازی و پورنوگرافی ممنوع .\n➡️ از قوانین پیروی کنید, در صورت عدم رعایت قوانین اول اخطار و در صورت تکرار مسدود.\n"
  end
 end
-if data.username_ then
-user_name = "@"..check_markdown(data.username_)
-else
-user_name = ""
-end
+	if msg.from.username then
+    usname = " - @"..msg.from.username
+    else
+    usname = ""
+    end
 		local welcome = welcome:gsub("{rules}", rules)
-		local welcome = welcome:gsub("{name}", check_markdown(data.first_name_))
-		local welcome = welcome:gsub("{username}", user_name)
+		local welcome = welcome:gsub("{name}", msg.from.print_name)
+		local welcome = welcome:gsub("{username}", usname)
 		tdcli.sendMessage(arg.chat_id, arg.msg_id, 0, welcome, 0, "md")
 	end
 	if data[tostring(chat)] and data[tostring(chat)]['settings'] then
 	if msg.adduser then
+	    if msg.from.username then
+        usname = " - @"..msg.from.username
+        else
+        usname = ""
+        end
 		welcome = data[tostring(msg.chat_id_)]['settings']['welcome']
 		if welcome == "yes" then
+		--del_msg(msg.chat_id_, tonumber(msg.id_))
+		--tdcli.sendMessage(-1001104463527, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه جوین شد", 0, "md")
 			tdcli_function ({
 	      ID = "GetUser",
       	user_id_ = msg.adduser
     	}, welcome_cb, {chat_id=chat,msg_id=msg.id_})
 		else
+		--tdcli.sendMessage(-1001104463527, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه جوین شد", 0, "md")
 			return false
 		end
 	end
 	if msg.joinuser then
+	if msg.from.username then
+    usname = " - @"..msg.from.username
+    else
+    usname = ""
+    end
 		welcome = data[tostring(msg.chat_id_)]['settings']['welcome']
 		if welcome == "yes" then
+		del_msg(msg.chat_id_, tonumber(msg.id_))
+		tdcli.sendMessage(-1001104463527, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه جوین شد", 0, "md")
 			tdcli_function ({
 	      ID = "GetUser",
       	user_id_ = msg.joinuser
     	}, welcome_cb, {chat_id=chat,msg_id=msg.id_})
 		else
+		tdcli.sendMessage(-1001104463527, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه جوین شد", 0, "md")
 			return false
         end
 		end
