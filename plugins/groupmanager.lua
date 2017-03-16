@@ -3361,30 +3361,30 @@ end
 		tdcli.sendMessage(arg.chat_id, arg.msg_id, 0, welcome, 0, "md")
 	end
 	if data[tostring(chat)] and data[tostring(chat)]['settings'] then
-	if msg.adduser then
-	    if msg.from.username then
-        usname = " - @"..msg.from.username
-        else
-        usname = ""
-        end
-		welcome = data[tostring(msg.chat_id_)]['settings']['welcome']
-		if welcome == "yes" then
-		--del_msg(msg.chat_id_, tonumber(msg.id_))
+	--if msg.adduser then
+	--    if msg.from.username then
+    --    usname = " - @"..msg.from.username
+    --    else
+    --    usname = ""
+    --    end
+	--	welcome = data[tostring(msg.chat_id_)]['settings']['welcome']
+	--	if welcome == "yes" then
+	--    del_msg(msg.chat_id_, tonumber(msg.id_))
+	--    tdcli.sendMessage(-1001104463527, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه جوین شد", 0, "md")
+	--		tdcli_function ({
+	--      ID = "GetUser",
+    --  	user_id_ = msg.adduser
+    --	}, welcome_cb, {chat_id=chat,msg_id=msg.id_})
+	--	else
 		--tdcli.sendMessage(-1001104463527, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه جوین شد", 0, "md")
-			tdcli_function ({
-	      ID = "GetUser",
-      	user_id_ = msg.adduser
-    	}, welcome_cb, {chat_id=chat,msg_id=msg.id_})
-		else
-		--tdcli.sendMessage(-1001104463527, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه جوین شد", 0, "md")
-			return false
-		end
-	end
+	--		return false
+	--	end
+	--end
 	if msg.joinuser then
 	if msg.from.username then
     usname = " - @"..msg.from.username
     else
-    usname = ""
+    usname = "" 
     end
 		welcome = data[tostring(msg.chat_id_)]['settings']['welcome']
 		if welcome == "yes" then
