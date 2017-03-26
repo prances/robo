@@ -532,11 +532,6 @@ local msgid = {[0] = message_ids}
   tdcli.deleteMessages(chat_id, msgid, dl_cb, nil)
 end
 
-function fwd_msg(chatid,chatfromid, message_ids)
-local msgid = {[0] = message_ids}
-  tdcli.forwardMessages(chatid, chatfromid, msgid , 0, dl_cb, nil)
-end
-
 function file_dl(file_id)
 	tdcli.downloadFile(file_id, dl_cb, nil)
 end
