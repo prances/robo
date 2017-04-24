@@ -71,7 +71,7 @@ function create_config( )
 		"lock-fosh",
 		"mute-time"
 	},
-    sudo_users = {328725730},
+    sudo_users = {309770415},
     admins = {},
     disabled_channels = {},
     moderation = {data = './data/moderation.json'},
