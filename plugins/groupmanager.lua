@@ -1,5 +1,5 @@
 local function modadd(msg)
-local hash = "gp_lang:"..msg.chat_id_
+local hash = "gp_lang:"..msg.chat_id_ 
 local lang = redis:get(hash)
     if not is_admin(msg) then
    if not lang then
@@ -2340,6 +2340,7 @@ if matches[2] and tonumber(msg.reply_to_message_id_) == 0 then
    end
 if matches[1] == "pin" and is_owner(msg) then
 tdcli.pinChannelMessage(msg.chat_id_, msg.reply_to_message_id_, 1)
+del_msg(msg.chat_id_, tonumber(msg.id_))
 if not lang then
 return "*Message Has Been Pinned*"
 else
@@ -2348,6 +2349,7 @@ end
 end
 if matches[1] == 'unpin' and is_mod(msg) then
 tdcli.unpinChannelMessage(msg.chat_id_)
+del_msg(msg.chat_id_, tonumber(msg.id_))
 if not lang then
 return "*Pin message has been unpinned*"
 else
@@ -2664,8 +2666,7 @@ end
 		 	end
        end
 		end
-    if matches[1] == 'لینک' and is_mod(msg) then
-	del_msg(msg.chat_id_, tonumber(msg.id_))
+    if matches[1] == 'لینک' then
       local linkgp = data[tostring(chat)]['settings']['linkgp']
       if not linkgp then
       if not lang then
@@ -2682,7 +2683,6 @@ end
         return tdcli.sendMessage(chat, msg.id_, 1, text, 1, 'html')
      end
   if matches[1] == "setrules" and matches[2] and is_mod(msg) then
-  del_msg(msg.chat_id_, tonumber(msg.id_))
     data[tostring(chat)]['rules'] = matches[2]
 	  save_data(_config.moderation.data, data)
      if not lang then
