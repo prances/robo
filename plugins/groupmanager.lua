@@ -3442,13 +3442,13 @@ end
 		welcome = data[tostring(msg.chat_id_)]['settings']['welcome']
 		if welcome == "yes" then
 		del_msg(msg.chat_id_, tonumber(msg.id_))
-		tdcli.sendMessage(-1001104463527, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")", 0, "md")
+		--tdcli.sendMessage(-1001104463527, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")", 0, "md")
 			tdcli_function ({
 	      ID = "GetUser",
       	user_id_ = msg.joinuser
     	}, welcome_cb, {chat_id=chat,msg_id=msg.id_})
 		else
-		tdcli.sendMessage(-1001104463527, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")", 0, "md")
+		--tdcli.sendMessage(-1001104463527, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")", 0, "md")
 			return false
         end
 		end
