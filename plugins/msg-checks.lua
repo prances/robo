@@ -165,10 +165,10 @@ if lock_link == "yes" then
 local is_link_caption = msg.content_.caption_:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.content_.caption_:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/") or msg.content_.caption_:match("[Tt][Ll][Gg][Rr][Mm].[Dd][Oo][Gg]/") or msg.content_.caption_:match("[Tt].[Mm][Ee]/")
 if is_link_caption then
  if is_channel then
-  kick_user(user, chat)
-  tdcli.sendMessage(-1001078193822, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه پست لینکدار ارسال کرد.".."\n"..msg.content_.caption_, 0, "md")
-  tdcli.sendMessage(msg.chat_id_, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه علت ارسال پست لینکدار از گروه اخراج شدید.", 0, "md")
-  tdcli.forwardMessages(-1001078193822, msg.chat_id_,{[0] = msg.id}, 0,dl_cb,nil)
+  --kick_user(user, chat)
+  --tdcli.sendMessage(-1001078193822, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه پست لینکدار ارسال کرد.".."\n"..msg.content_.caption_, 0, "md")
+  --tdcli.sendMessage(msg.chat_id_, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه علت ارسال پست لینکدار از گروه اخراج شدید.", 0, "md")
+  --tdcli.forwardMessages(-1001078193822, msg.chat_id_,{[0] = msg.id}, 0,dl_cb,nil)
   del_msg(msg.chat_id_, tonumber(msg.id_))
   elseif is_chat then
 kick_user(user, chat)
@@ -196,8 +196,8 @@ if lock_tag == "yes" then
 local tag_caption = msg.content_.caption_:match("@")
 if tag_caption then
  if is_channel then
-        tdcli.sendMessage(-1001095849470, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه پست آی دی دار ارسال کرد.".."\n"..msg.content_.caption_, 0, "md")
-        tdcli.forwardMessages(-1001095849470, msg.chat_id_,{[0] = msg.id}, 0,dl_cb,nil)
+        --tdcli.sendMessage(-1001095849470, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه پست آی دی دار ارسال کرد.".."\n"..msg.content_.caption_, 0, "md")
+        --tdcli.forwardMessages(-1001095849470, msg.chat_id_,{[0] = msg.id}, 0,dl_cb,nil)
         del_msg(msg.chat_id_, tonumber(msg.id_))
  elseif is_chat then
 kick_user(user, chat)
@@ -277,9 +277,9 @@ kick_user(user, chat)
 end
     if tonumber(msg.via_bot_user_id_) ~= 0 and mute_inline == "yes" then
  if is_channel then
-  kick_user(user, chat)
-  tdcli.sendMessage(-1001078193822, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nپست دکمه شیشه ای دار ارسال کرد.".."\n", 0, "md")
-  tdcli.forwardMessages(-1001078193822, msg.chat_id_,{[0] = msg.id}, 0,dl_cb,nil)
+  --kick_user(user, chat)
+  --tdcli.sendMessage(-1001078193822, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nپست دکمه شیشه ای دار ارسال کرد.".."\n", 0, "md")
+  --tdcli.forwardMessages(-1001078193822, msg.chat_id_,{[0] = msg.id}, 0,dl_cb,nil)
   del_msg(msg.chat_id_, tonumber(msg.id_))
   elseif is_chat then
 kick_user(user, chat)
@@ -313,10 +313,10 @@ local link_msg = msg.text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or
 if link_msg
 and lock_link == "yes" then
  if is_channel then
-  kick_user(user, chat)
-  tdcli.forwardMessages(-1001078193822, msg.chat_id_,{[0] = msg.id}, 0,dl_cb,nil)
-  tdcli.sendMessage(-1001078193822, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه پست لینکدار ارسال کرد.".."\n"..msg.text, 0, "md")
-  tdcli.sendMessage(msg.chat_id_, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه علت ارسال پست لینکدار از گروه اخراج شدید.", 0, "md")
+  --kick_user(user, chat)
+  --tdcli.forwardMessages(-1001078193822, msg.chat_id_,{[0] = msg.id}, 0,dl_cb,nil)
+  --tdcli.sendMessage(-1001078193822, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه پست لینکدار ارسال کرد.".."\n"..msg.text, 0, "md")
+  --tdcli.sendMessage(msg.chat_id_, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه علت ارسال پست لینکدار از گروه اخراج شدید.", 0, "md")
   del_msg(msg.chat_id_, tonumber(msg.id_))
   elseif is_chat then
 kick_user(user, chat)
@@ -325,9 +325,9 @@ end
 local tag_msg = msg.text:match("@")
 if tag_msg and lock_tag == "yes" then
  if is_channel then
-        tdcli.forwardMessages(-1001095849470, msg.chat_id_,{[0] = msg.id}, 0,dl_cb,nil)
-        tdcli.sendMessage(-1001095849470, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه پست آی دی دار ارسال کرد.".."\n"..msg.text, 0, "md")
-	    del_msg(msg.chat_id_, tonumber(msg.id_))
+        --tdcli.forwardMessages(-1001095849470, msg.chat_id_,{[0] = msg.id}, 0,dl_cb,nil)
+        --tdcli.sendMessage(-1001095849470, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه پست آی دی دار ارسال کرد.".."\n"..msg.text, 0, "md")
+	del_msg(msg.chat_id_, tonumber(msg.id_))
   elseif is_chat then
 kick_user(user, chat)
    end
@@ -367,9 +367,9 @@ if msg.content_.entities_ and msg.content_.entities_[0] then
  if msg.content_.entities_[0].ID == "MessageEntityMentionName" then
   if lock_mention == "yes" then
     if is_channel then
-        tdcli.forwardMessages(-1001095849470, msg.chat_id_,{[0] = msg.id}, 0,dl_cb,nil)
-        tdcli.sendMessage(-1001095849470, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه پست آی دی دار ارسال کرد.".."\n"..msg.text, 0, "md")
-		del_msg(msg.chat_id_, tonumber(msg.id_))
+        --tdcli.forwardMessages(-1001095849470, msg.chat_id_,{[0] = msg.id}, 0,dl_cb,nil)
+        --tdcli.sendMessage(-1001095849470, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه پست آی دی دار ارسال کرد.".."\n"..msg.text, 0, "md")
+        del_msg(msg.chat_id_, tonumber(msg.id_))
     elseif is_chat then
         kick_user(user, chat) 
     end 
@@ -378,9 +378,9 @@ if msg.content_.entities_ and msg.content_.entities_[0] then
   if msg.content_.entities_[0].ID == "MessageEntityUrl" or msg.content_.entities_[0].ID == "MessageEntityTextUrl" then
       if lock_webpage == "yes" then
 if is_channel then
-  kick_user(user, chat)
-  tdcli.forwardMessages(-1001078193822, msg.chat_id_,{[0] = msg.id}, 0,dl_cb,nil)
-  tdcli.sendMessage(-1001078193822, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه پست لینکدار ارسال کرد.".."\n"..msg.text, 0, "md")
+  --kick_user(user, chat)
+  --tdcli.forwardMessages(-1001078193822, msg.chat_id_,{[0] = msg.id}, 0,dl_cb,nil)
+  --tdcli.sendMessage(-1001078193822, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه پست لینکدار ارسال کرد.".."\n"..msg.text, 0, "md")
   del_msg(msg.chat_id_, tonumber(msg.id_))
   elseif is_chat then
 kick_user(user, chat)
@@ -390,9 +390,9 @@ kick_user(user, chat)
   if msg.content_.entities_[0].ID == "MessageEntityBold" or msg.content_.entities_[0].ID == "MessageEntityCode" or msg.content_.entities_[0].ID == "MessageEntityPre" or msg.content_.entities_[0].ID == "MessageEntityItalic" then
       if lock_markdown == "yes" then
 if is_channel then
-  kick_user(user, chat)
-  tdcli.forwardMessages(-1001078193822, msg.chat_id_,{[0] = msg.id}, 0,dl_cb,nil)
-  tdcli.sendMessage(-1001078193822, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه پست با متن خاص ارسال کرد.".."\n"..msg.text, 0, "md")
+  --kick_user(user, chat)
+  --tdcli.forwardMessages(-1001078193822, msg.chat_id_,{[0] = msg.id}, 0,dl_cb,nil)
+  --tdcli.sendMessage(-1001078193822, "", 0, msg.from.print_name.." ("..msg.from.id..usname..")\nبه گروه پست با متن خاص ارسال کرد.".."\n"..msg.text, 0, "md")
   del_msg(msg.chat_id_, tonumber(msg.id_))
   elseif is_chat then
 kick_user(user, chat)
