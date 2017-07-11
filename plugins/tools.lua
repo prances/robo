@@ -577,7 +577,7 @@ if matches[1] == 'adminlist' and is_admin(msg) then
 return adminlist(msg)
     end
      if matches[1] == 'leave' and is_admin(msg) then
-  tdcli.changeChatMemberStatus(chat, our_id, 'Left', dl_cb, nil)
+  --tdcli.changeChatMemberStatus(chat, our_id, 'Left', dl_cb, nil)
    end
      if matches[1] == 'autoleave' and is_admin(msg) then
 local hash = 'auto_leave_bot'
